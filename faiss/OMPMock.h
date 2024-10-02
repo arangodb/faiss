@@ -1,5 +1,6 @@
 void omp_set_num_threads(int);
 void omp_set_dynamic(int);
+void omp_set_nested(int);
 
 /* query API functions */
 int omp_get_num_threads(void);
