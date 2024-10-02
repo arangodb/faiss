@@ -9,7 +9,7 @@
 
 #include <faiss/utils/extra_distances.h>
 
-#include <omp.h>
+//#include <omp.h>
 #include <algorithm>
 #include <cmath>
 
@@ -17,6 +17,7 @@
 #include <faiss/impl/DistanceComputer.h>
 #include <faiss/impl/FaissAssert.h>
 #include <faiss/utils/utils.h>
+#include <faiss/OMPMock.h>
 
 namespace faiss {
 

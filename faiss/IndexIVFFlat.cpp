@@ -9,7 +9,7 @@
 
 #include <faiss/IndexIVFFlat.h>
 
-#include <omp.h>
+//#include <omp.h>
 
 #include <cinttypes>
 #include <cstdio>
@@ -22,6 +22,7 @@
 #include <faiss/impl/FaissAssert.h>
 #include <faiss/utils/distances.h>
 #include <faiss/utils/utils.h>
+#include <faiss/OMPMock.h>
 
 namespace faiss {
 

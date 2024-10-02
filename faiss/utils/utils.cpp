@@ -26,7 +26,7 @@
 #include <unistd.h>
 #endif // !_MSC_VER
 
-#include <omp.h>
+//#include <omp.h>
 
 #include <algorithm>
 #include <set>
@@ -37,6 +37,7 @@
 #include <faiss/impl/FaissAssert.h>
 #include <faiss/impl/platform_macros.h>
 #include <faiss/utils/random.h>
+#include <faiss/OMPMock.h>
 
 #ifndef FINTEGER
 #define FINTEGER long

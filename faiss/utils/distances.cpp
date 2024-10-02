@@ -14,7 +14,7 @@
 #include <cstdio>
 #include <cstring>
 
-#include <omp.h>
+//#include <omp.h>
 
 #ifdef __AVX2__
 #include <immintrin.h>
@@ -26,6 +26,7 @@
 #include <faiss/impl/ResultHandler.h>
 
 #include <faiss/utils/distances_fused/distances_fused.h>
+#include <faiss/OMPMock.h>
 
 #ifndef FINTEGER
 #define FINTEGER long

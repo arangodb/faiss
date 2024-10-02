@@ -9,7 +9,7 @@
 
 #include <faiss/IndexIVF.h>
 
-#include <omp.h>
+//#include <omp.h>
 #include <cstdint>
 #include <memory>
 #include <mutex>
@@ -28,6 +28,7 @@
 #include <faiss/impl/CodePacker.h>
 #include <faiss/impl/FaissAssert.h>
 #include <faiss/impl/IDSelector.h>
+#include <faiss/OMPMock.h>
 
 namespace faiss {
 

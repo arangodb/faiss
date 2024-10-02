@@ -17,7 +17,7 @@
 #include <cstdio>
 #include <cstring>
 
-#include <omp.h>
+//#include <omp.h>
 
 #include <faiss/IndexFlat.h>
 #include <faiss/impl/FaissAssert.h>
@@ -25,6 +25,7 @@
 #include <faiss/utils/distances.h>
 #include <faiss/utils/random.h>
 #include <faiss/utils/utils.h>
+#include <faiss/OMPMock.h>
 
 namespace faiss {
 
