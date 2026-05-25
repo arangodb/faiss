@@ -87,6 +87,10 @@
         <label>faiss/impl/binary_hamming/IndexPQ_impl.h</label>
         <link refid="IndexPQ__impl_8h_source"/>
       </node>
+      <node id="9">
+        <label>faiss/impl/pq_code_distance/IVFPQScanner_impl.h</label>
+        <link refid="IVFPQScanner__impl_8h_source"/>
+      </node>
       <node id="8">
         <label>faiss/utils/hamming.h</label>
         <link refid="hamming_8h_source"/>
@@ -102,6 +106,10 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>faiss/utils/hamming_distance/common.h</label>
@@ -109,23 +117,29 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="13">
         <label>faiss/utils/hamming_distance/hamming_computer-avx2.h</label>
         <link refid="hamming__computer-avx2_8h_source"/>
       </node>
-      <node id="12">
+      <node id="14">
         <label>faiss/utils/hamming_distance/hamming_computer-avx512.h</label>
         <link refid="hamming__computer-avx512_8h_source"/>
       </node>
-      <node id="10">
+      <node id="12">
         <label>faiss/utils/hamming_distance/hamming_computer-generic.h</label>
         <link refid="hamming__computer-generic_8h_source"/>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>faiss/utils/hamming_distance/hamming_computer-rvv.h</label>
+        <link refid="hamming__computer-rvv_8h_source"/>
       </node>
       <node id="2">
         <label>faiss/utils/hamming_distance/hamming_computer.h</label>
@@ -142,14 +156,20 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="10">
         <label>faiss/utils/hamming_distance/hamming_impl.h</label>
-        <link refid="hamming__impl_8h_source"/>
+        <link refid="hamming__distance_2hamming__impl_8h_source"/>
+      </node>
+      <node id="11">
+        <label>faiss/utils/simd_impl/hamming_impl.h</label>
+        <link refid="simd__impl_2hamming__impl_8h_source"/>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespacefaiss">faiss</innernamespace>
@@ -448,7 +468,7 @@
 <codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i,<sp/>j,<sp/>posm<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t*<sp/>bs1<sp/>=<sp/>dbs;</highlight></codeline>
 <codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t*<sp/>bs2<sp/>=<sp/>bs1<sp/>+<sp/>2;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t*<sp/>bs2<sp/>=<sp/>bs1<sp/>+<sp/>nwords;</highlight></codeline>
 <codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>i<sp/>+<sp/>1;<sp/>j<sp/>&lt;<sp/>n;<sp/>j++)<sp/>{</highlight></codeline>
 <codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hamming&lt;nbits&gt;(bs1,<sp/>bs2)<sp/>&lt;=<sp/>ht)<sp/>{</highlight></codeline>
 <codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>posm++;</highlight></codeline>
