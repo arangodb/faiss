@@ -374,7 +374,10 @@ IndexIVF* parse_IndexIVF(
     auto match = [&sm, &code_string](const std::string pattern) {
         return re_match(code_string, pattern, sm);
     };
-    auto get_q = [&quantizer] { return quantizer.release(); };
+    // Ownership of the quantizer is transferred by the caller only after the
+    // index has been constructed; a constructor that throws (e.g. invalid PQ
+    // parameters) would otherwise leak it, since own_fields is not set yet.
+    auto get_q = [&quantizer] { return quantizer.get(); };
     int d = quantizer->d;
 
     if (match("Flat")) {
@@ -1215,6 +1218,7 @@ std::unique_ptr<Index> index_factory_sub(
                     "could not parse code description %s in %s",
                     code_description.c_str(),
                     description.c_str());
+            quantizer.release(); // now owned by index_ivf (own_fields)
             return std::unique_ptr<Index>(fix_ivf_fields(index_ivf));
         }
     }
